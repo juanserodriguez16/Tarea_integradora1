@@ -1,0 +1,63 @@
+package model;
+
+public class Product {
+
+	private String code;
+	private String name;
+	private String description;
+	private String nit;
+	private double price;
+	
+	public Product(String code, String name, String description, String nit, double price) {
+		super();
+		this.code = code;
+		this.name = name;
+		this.description = description;
+		this.nit = nit;
+		this.price = price;
+	}
+
+	public String getCode() {
+		return code;
+	}
+
+	public void setCode(String code) {
+		this.code = code;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public String getNit() {
+		return nit;
+	}
+
+	public void setNit(String nit) {
+		this.nit = nit;
+	}
+
+	public double getPrice() {
+		return price;
+	}
+
+	public void setPrice(double price) {
+		this.price = price;
+	}
+	
+	
+	
+	
+}
