@@ -1,11 +1,12 @@
 package model;
 
+import java.util.ArrayList;
+
 public class Restaurant {
 
 	private String name;
 	private String nit;
 	private String admiName;
-	
 	
 	public Restaurant(String name, String nit, String admiName) {
 		super();
@@ -43,7 +44,6 @@ public class Restaurant {
 	public void setAdmiName(String admiName) {
 		this.admiName = admiName;
 	}
-	
-	
+		
 	
 }

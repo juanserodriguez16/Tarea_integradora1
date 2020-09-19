@@ -5,15 +5,15 @@ public class Product {
 	private String code;
 	private String name;
 	private String description;
-	private String nit;
+	private String nitRestaurant;
 	private double price;
 	
-	public Product(String code, String name, String description, String nit, double price) {
+	public Product(String code, String name, String description, String nitRestaurant, double price) {
 		super();
 		this.code = code;
 		this.name = name;
 		this.description = description;
-		this.nit = nit;
+		this.nitRestaurant = nitRestaurant;
 		this.price = price;
 	}
 
@@ -42,11 +42,11 @@ public class Product {
 	}
 
 	public String getNit() {
-		return nit;
+		return nitRestaurant;
 	}
 
-	public void setNit(String nit) {
-		this.nit = nit;
+	public void setNit(String nitRestaurant) {
+		this.nitRestaurant = nitRestaurant;
 	}
 
 	public double getPrice() {
