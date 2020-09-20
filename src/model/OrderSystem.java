@@ -1,7 +1,10 @@
 package model;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
+
+import exception.NotSwitchOrderStateException;
 
 public class OrderSystem {
 	
@@ -38,8 +41,8 @@ public class OrderSystem {
 		}
 	}
 	
-	public void addClient(String idType, String fullName, String idNumber, String phone, String address) {
-		Client client = new Client(idType, idNumber, fullName, phone, address);
+	public void addClient(String idType, String name, String lastName, String idNumber, String phone, String address) {
+		Client client = new Client(idType, idNumber, name,lastName, phone, address);
 		if (client != null) {
 			clients.add(client);
 		}
@@ -75,13 +78,14 @@ public class OrderSystem {
 			}
 		}
 	}
-	public void updateClient(String idNumber, String idType, String fullName, String phone, String adrress) {
+	public void updateClient(String idNumber, String idType, String name, String lastName, String phone, String adrress) {
 		if (idNumber != null) {
 			for (int i = 0; i < clients.size(); i++) {
 				Client cli = clients.get(i);
 				if (idNumber.equals(cli.getIdNumber())) {
 					cli.setAdrress(adrress);
-					cli.setFullName(fullName);
+					cli.setName(name);
+					cli.setLastName(lastName);
 					cli.setIdType(idType);
 					cli.setPhone(phone);
 				}
@@ -102,4 +106,52 @@ public class OrderSystem {
 			}
 		}
 	}
+	
+	public String changeOrderState(Order order, int newState) throws NotSwitchOrderStateException {
+		String state="";
+		if((order.getState() != 0)  && (newState != 0)) {
+			if (newState > order.getState()) {
+				order.setState(newState);
+				state= order.orderState(newState);
+			}else {
+				throw new NotSwitchOrderStateException();
+			}
+		}
+		return state;
+	}
+	
+	
+	
+	public static void main(String[] args) {
+		
+		ArrayList<Client> cli = new ArrayList();
+		cli.add(new Client("a", "1111", "Julian", "Mabesoy", "999", "carrera #1"));
+		cli.add(new Client("a", "2222", "Pepito", "Perez", "999", "carrera #2"));
+		cli.add(new Client("a", "3333", "Isa", "Naranjo", "999", "carrera #3"));
+		cli.add(new Client("a", "4444", "Sebastian", "Rodriguez", "999", "carrera #4"));
+		cli.add(new Client("a", "5555", "Manolo", "Parolo", "999", "carrera #5"));
+		cli.add(new Client("a", "6666", "Tefa", "Naranjo", "999", "carrera #6"));
+		
+		System.out.println("Clientes comparados");
+		Collections.sort(cli, new ClientLastNameSort());
+		for (Client cliente: cli) {
+			System.out.println(cliente.getIdType() + " " + cliente.getIdNumber() + " " +  cliente.getLastName() + " " +  cliente.getName()   + " " +  cliente.getPhone()  + " " +  cliente.getAdrress());
+		}
+		
+	}
+	
+	
+	
 }
+
+
+
+
+
+
+
+
+
+
+
+

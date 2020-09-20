@@ -5,10 +5,10 @@ import java.util.Date;
 
 public class Order {
 
-	public final static int SOLICITADO = 1;
-	public final static int EN_PROCESO = 2;
-	public final static int ENVIADO = 3;
-	public final static int ENTREGADO = 4;
+	public final static String SOLICITADO = "Solicitado";
+	public final static String EN_PROCESO = "En Proceso";
+	public final static String ENVIADO = "Enviado";
+	public final static String ENTREGADO = "Entregado";
 	
 	private int state;
 	private String code;
@@ -82,9 +82,30 @@ public class Order {
 		this.products = products;
 	}
 	
+	public String orderState(int state) {
+		String stateReturn="";
+		
+		switch (state) {
+		case 1:
+			stateReturn = SOLICITADO; 
+			break;
+			
+		case 2:
+			stateReturn = EN_PROCESO; 
+			break;
+		case 3:
+			stateReturn = ENVIADO; 
+			break;
+		case 4:
+			stateReturn = ENTREGADO; 
+			break;
+		}
+		
+		
+		return stateReturn;
+	}
 	
 	
 	
 	
 }
-

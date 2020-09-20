@@ -1,19 +1,21 @@
 package model;
 
-public class Client {
+public class Client implements Comparable<Client>{
 	
 	private String idType;
 	private String idNumber;
-	private String fullName;
+	private String name;
+	private String lastName;
 	private String phone;
 	private String adrress;
 	
 	
-	public Client(String idType, String idNumber, String fullName, String phone, String adrress) {
+	public Client(String idType, String idNumber, String name, String lastName, String phone, String adrress) {
 		super();
 		this.idType = idType;
 		this.idNumber = idNumber;
-		this.fullName = fullName;
+		this.name = name;
+		this.lastName = lastName;
 		this.phone = phone;
 		this.adrress = adrress;
 	}
@@ -39,13 +41,24 @@ public class Client {
 	}
 
 
-	public String getFullName() {
-		return fullName;
+
+	public String getName() {
+		return name;
 	}
 
 
-	public void setFullName(String fullName) {
-		this.fullName = fullName;
+	public void setName(String name) {
+		this.name = name;
+	}
+
+
+	public String getLastName() {
+		return lastName;
+	}
+
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
 	}
 
 
@@ -66,6 +79,13 @@ public class Client {
 
 	public void setAdrress(String adrress) {
 		this.adrress = adrress;
+	}
+
+
+	@Override
+	public int compareTo(Client o) {
+		
+		return 0;
 	}
 	
 	
