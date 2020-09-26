@@ -130,7 +130,11 @@ public class Order {
 	
 	@Override
 	public String toString() {
-		return "Codigo "+code+" ;estado "+nameState()+" ;Fecha "+date+" ;Nit restaurante "+nitRestaurant;
+		String str = "";
+		for(Product e: products) {
+			str += e.getName()+" -- ";
+		}
+		return "Codigo "+code+" ;estado "+nameState()+" ;Fecha "+date+" ;Nit restaurante "+nitRestaurant+ " ;ID Cliente "+ idClient + " ;productos "+str;
 	}
 	
 	
