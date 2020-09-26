@@ -1,17 +1,22 @@
 package model;
 
-public class Client implements Comparable<Client>{
+import java.io.Serializable;
+
+
+
+public class Client implements Serializable{
+	
+	private static final long serialVersionUID = -1L;
 	
 	private String idType;
 	private String idNumber;
 	private String name;
 	private String lastName;
-	private String phone;
+	private int phone;
 	private String adrress;
 	
 	
-	public Client(String idType, String idNumber, String name, String lastName, String phone, String adrress) {
-		super();
+	public Client(String idType, String idNumber, String name, String lastName, int phone, String adrress) {
 		this.idType = idType;
 		this.idNumber = idNumber;
 		this.name = name;
@@ -62,12 +67,12 @@ public class Client implements Comparable<Client>{
 	}
 
 
-	public String getPhone() {
+	public int getPhone() {
 		return phone;
 	}
 
 
-	public void setPhone(String phone) {
+	public void setPhone(int phone) {
 		this.phone = phone;
 	}
 
@@ -80,14 +85,16 @@ public class Client implements Comparable<Client>{
 	public void setAdrress(String adrress) {
 		this.adrress = adrress;
 	}
-
-
-	@Override
-	public int compareTo(Client o) {
-		
-		return 0;
-	}
 	
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		//return "Nombre del cliente " + name + " " +lastName + " telefono " + phone;
+		return "Nombre Completo " + name + " " +lastName + "; tipo de Id " + idType + " ;num de ID "+ idNumber + " ;telefono " + phone + " ;dirección "+adrress;
+	}
+
+
+
 	
 	
 	

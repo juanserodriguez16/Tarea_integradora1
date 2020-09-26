@@ -11,14 +11,15 @@ public class Order {
 	public final static String ENTREGADO = "Entregado";
 	
 	private int state;
-	private String code;
+	private int code;
 	private Date date;
 	private String idClient;
 	private String nitRestaurant;
 	private ArrayList<Product> products;
 	
-	public Order(String code, Date date, String idClient, String nitRestaurant, ArrayList<Product> products) {
+	public Order(int state, int code, Date date, String idClient, String nitRestaurant, ArrayList<Product> products) {
 		super();
+		this.state = state;
 		this.code = code;
 		this.date = date;
 		this.idClient = idClient;
@@ -26,11 +27,11 @@ public class Order {
 		this.products = products;
 	}
 
-	public String getCode() {
+	public int getCode() {
 		return code;
 	}
 
-	public void setCode(String code) {
+	public void setCode(int code) {
 		this.code = code;
 	}
 
@@ -50,20 +51,12 @@ public class Order {
 		this.idClient = client;
 	}
 
-	public String getRestaurant() {
+	public String getNitRestaurant() {
 		return nitRestaurant;
 	}
 
-	public void setRestaurant(String restaurant) {
+	public void setNitRestaurant(String restaurant) {
 		this.nitRestaurant = restaurant;
-	}
-
-	public ArrayList<Product> getProductos() {
-		return products;
-	}
-
-	public void setProductos(ArrayList<Product> productos) {
-		this.products = productos;
 	}
 
 	public int getState() {
@@ -104,8 +97,41 @@ public class Order {
 		
 		return stateReturn;
 	}
+	public String nameState() {
+		String stateReturn="";
+		
+		switch (this.state) {
+		case 1:
+			stateReturn = SOLICITADO; 
+			break;
+			
+		case 2:
+			stateReturn = EN_PROCESO; 
+			break;
+		case 3:
+			stateReturn = ENVIADO; 
+			break;
+		case 4:
+			stateReturn = ENTREGADO; 
+			break;
+		}
+		
+		
+		return stateReturn;
+	}
 	
+	public String showProducts() {
+		String str = "";
+		for(Product e: getProducts()) {
+			str+=e.toString()+"\n";
+		}
+		return str;
+	}
 	
+	@Override
+	public String toString() {
+		return "Codigo "+code+" ;estado "+nameState()+" ;Fecha "+date+" ;Nit restaurante "+nitRestaurant;
+	}
 	
 	
 }

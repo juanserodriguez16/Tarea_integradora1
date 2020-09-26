@@ -6,9 +6,9 @@ public class Product {
 	private String name;
 	private String description;
 	private String nitRestaurant;
-	private double price;
+	private int price;
 	
-	public Product(String code, String name, String description, String nitRestaurant, double price) {
+	public Product(String code, String name, String description, String nitRestaurant, int price) {
 		super();
 		this.code = code;
 		this.name = name;
@@ -41,20 +41,25 @@ public class Product {
 		this.description = description;
 	}
 
-	public String getNit() {
+	public String getNitRestaurant() {
 		return nitRestaurant;
 	}
 
-	public void setNit(String nitRestaurant) {
+	public void setNitRestaurant(String nitRestaurant) {
 		this.nitRestaurant = nitRestaurant;
 	}
 
-	public double getPrice() {
+	public int getPrice() {
 		return price;
 	}
 
-	public void setPrice(double price) {
+	public void setPrice(int price) {
 		this.price = price;
+	}
+	
+	@Override
+	public String toString() {
+		return "Nombre "+ name +" ;Codigo " + code + " ;Descripción "+ description + " ;Precio "+price+ " ;Nit restaurante "+nitRestaurant;
 	}
 	
 	
